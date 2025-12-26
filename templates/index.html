@@ -1,0 +1,108 @@
+{% extends './base.html' %}
+
+{% block title %} Pagina Principal{% endblock %}
+
+{% block body %}
+<div class="row align-items-center mb-5">
+    <div class="col-md-6">
+        <h1 class="fw-bold mb-3">Bienvenidos a la Escuelita de Pádel Berazategui</h1>
+        <p class="lead">
+             Somos un espacio dedicado a la formación deportiva y humana,
+            donde niños y jóvenes aprenden pádel en un entorno de respeto,
+            compañerismo y diversión.
+        </p>
+
+        <p>
+            Nuestro objetivo es acompañar a cada alumno en su crecimiento,
+            fomentando valores como el esfuerzo, la disciplina y el trabajo en equipo,
+            siempre priorizando el disfrute del deporte.
+        </p>
+    </div>
+
+    <div class="col-md-6 text-center">
+        <img src="{{ url_for('static', filename='imagenes/logo.jpg') }}"
+            class="img-fluid rounded shadow"
+            alt="Escuelita de pádel">
+    </div>
+</div>
+
+<div class="row text-center mb-5">
+    <h2 class="fw-bold mb-4">Nuestros valores</h2>
+
+    <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Respeto</h5>
+                <p class="card-text">
+                    Promovemos el respeto entre compañeros, profesores y rivales,
+                    dentro y fuera de la cancha.
+                </p>
+            </div>
+        </div>
+    </div>
+
+   <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Aprendizaje</h5>
+                <p class="card-text">
+                    Trabajamos desde los fundamentos básicos hasta niveles más avanzados,
+                    adaptándonos a cada edad y nivel.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+   <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Diversion</h5>
+                <p class="card-text">
+                    Creemos que aprender jugando es la mejor manera de crecer
+                    y disfrutar del pádel.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- GALERÍA SIMPLE -->
+<div class="row mb-5">
+    <h2 class="fw-bold text-center mb-4">Nuestra escuelita</h2>
+
+    <div class="img-box">
+        <img src="{{ url_for('static', filename='imagenes/escuelita1.jpeg') }}">
+    </div>
+
+    
+    <div class="img-box">
+        <img src="{{ url_for('static', filename='imagenes/escuelita2.jpeg') }}">
+    </div>
+
+    
+    <div class="img-box">
+        <img src="{{ url_for('static', filename='imagenes/escuelita3.jpeg') }}">
+    </div>
+
+    
+    <div class="img-box">
+        <img src="{{ url_for('static', filename='imagenes/escuelita4.jpeg') }}">
+    </div>
+</div>
+
+
+<div class="text-center p-5 bg-light rounded shadow-sm">
+    <h3 class="fw-bold mb-3">¿Querés sumarte?</h3>
+    <p class="mb-4">
+        Invitamos a madres, padres y alumnos a formar parte de nuestra escuelita.
+        Podés registrar a tu hijo/a fácilmente desde nuestra web.
+    </p>
+    <a href="/registrar" class="btn btn-primary btn-lg">
+        Registrar alummno
+    </a>
+</div>
+
+
+
+{% endblock %}
