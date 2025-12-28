@@ -1,7 +1,50 @@
 {% extends './base.html' %}
 
-{% block title %}Registrar{% endblock %}
+{% block title %}Registrar Alumno{% endblock %}
 
 {% block body %}
+<section class="container my-5" style="max-width: 600px;">
+    <h1 class="fw-bold text-center mb-4">Registrar alumno</h1>
+
+    <form method="POST" class="card shadow-sm p-4">
+        <div class="mb-3">
+            <label class="form-label">Nombre del alumno</label>
+            <input type="text" name="nombre" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Apellido</label>
+            <input type="text" name="apellido" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">DNI</label>
+            <input type="text" name="dni" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Edad</label>
+            <input type="text" name="edad" class="form-control" required>
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">Turno</label>
+            <select name="turno" class="form-select" required>
+                <option value="">Seleccionar turno</option>
+                <option value="10:30">10:30</option>
+                <option value="12:00">12:00</option>
+                <option value="13:30">13:30</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-warning w-100 fw-bold">
+            Registrar alumno
+        </button>
+
+
+    </form>
+
+</section>
+
 
 {% endblock %}
