@@ -3,5 +3,154 @@
 {% block title %}Turnos{% endblock %}
 
 {% block body %}
+<style>
+    .turno-card{
+        transition: all 0.3s ease;
+        border: none;
+    }
+
+    .turno-card:hover{
+        transform: translateY(-6px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .turno-1030{
+        background: linear-gradient(135deg, #e8f5e9, #ffffff);
+    }
+
+    .turno-1200 {
+        background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    }
+
+    .turno-1330 {
+        background: linear-gradient(135deg, #fff3e0, #ffffff);
+    }
+
+    .section-box {
+        background: #f8f9fa;
+        border-radius: 12px;
+        padding: 30px;
+        margin-top: 50px;
+    }
+
+</style>
+
+<div class="text-center mb-5">
+    <h1 class="fw-bold">Nuestros Turnos de Entrenamiento</h1>
+    <p class="lead">
+        Nuestros turnos están organizados según la edad, el nivel y el proceso
+        de aprendizaje de cada chico, priorizando siempre el juego, el respeto
+        y la evolución individual.
+    </p>
+</div>
+
+<div class="row g-4">
+    <!-- Turno 10:30-->
+     <div class="col-md-4">
+        <div class="card turno-card turno-1030 h-100">
+            <div class="card-body">
+                <h4 class="fw-bold">🕒 Turno 10:30</h4>
+                <span class="badge bg-success mb-3">Nivel Inicial</span>
+                <ul class="mt-3">
+                    <li>Primeros pasos en el pádel</li>
+                    <li>Golpes básicos y coordinación</li>
+                    <li>Clases dinámicas y juegos</li>
+                    <li>Primeros conceptos tácticos</li>
+                </ul>
+                <p class="fw-semibold mt-3">
+                   🎯 Objetivo: disfrutar y aprender.
+                </p>
+            </div>
+        </div>
+     </div>
+
+<!-- Turno 12:00-->
+     <div class="col-md-4">
+        <div class="card turno-card turno-1200 h-100">
+            <div class="card-body">
+                <h4 class="fw-bold">🕒 Turno 12:00</h4>
+                <span class="badge bg-primary mb-3">Nivel Intermedio</span>
+                <ul class="mt-3">
+                    <li>Mejora técnica</li>
+                    <li>Desplazamiento</li>
+                    <li>Introducción a la táctica</li>
+                </ul>
+                <p class="fw-semibold mt-3">
+                    🎯 Objetivo: afianzar el juego.
+                </p>
+            </div>
+        </div>
+     </div>
+
+<!-- Turno 13:30-->
+     <div class="col-md-4">
+        <div class="card turno-card turno-1330 h-100">
+            <div class="card-body">
+                <h4 class="fw-bold">🕒 Turno 13:30</h4>
+                <span class="badge bg-warning text-dark mb-3">Nivel Avanzado</span>
+                <ul class="mt-3">
+                    <li>Trabajo táctico</li>
+                    <li>Preparación para torneos</li>
+                    <li>Entrenamiento competitivo</li>
+                </ul>
+                <p class="fw-semibold mt-3">
+                    🎯 Objetivo: rendimiento y competencia
+                </p>
+            </div>
+        </div>
+     </div>
+
+<!-- Metodología-->
+ <div class="section-box">
+    <h4 class="fw-bold mb-3">📘 Nuestra metodología</h4>
+    <p>
+        Trabajamos con una metodología progresiva, adaptada a cada edad,
+        priorizando el aprendizaje a través del juego y la participación activa
+        de todos los chicos.
+    </p>
+
+    <p>
+        No buscamos resultados inmediatos, sino formar jugadores con buena base
+        técnica, compañerismo y amor por el deporte.
+    </p>
+ </div>
+
+<!-- VALORES -->
+ <div class="section-box">
+    <h4 class="fw-blod mb-3">🤝 Valores que fomentamos</h4>
+
+    <ul>
+        <li>Respeto por los compañeros y profesores</li>
+        <li>Compromiso y responsabilidad</li>
+        <li>Trabajo en equipo</li>
+        <li>Disfrutar del deporte</li>
+    </ul>
+ </div>
+
+<!-- INFO -->
+ <div class="section-box">
+    <h4 class="fw-bold mb-3">ℹ️ Información importante</h4>
+    <ul>
+        <li>Clases dictadas por profesores capacitados</li>
+        <li>Grupos reducidos por cancha</li>
+        <li>Material adaptado según la edad</li>
+        <li>Seguimiento del progreso de cada alumno</li>
+    </ul>
+ </div>
+
+
+<!-- ALERTA -->
+ <div class="alert alert-secondary mt-5">
+    Los grupos pueden ajustarse según la evolución y compromiso del alumno.
+ </div>
+
+<!-- REGISTRAR -->
+<div class="text-center mt-4 mb-5">
+    <a href="/registrar" class="btn btn-success btn-lg px-5 py-3">
+        👉 Registrar a mi hijo
+    </a>
+</div>
+
+</div>
 
 {% endblock %}

@@ -2,6 +2,116 @@
 
 {% block title %}Ubicacion{% endblock %}
 
+{% block styles %}
+<style>
+    .ubicacion-img-box{
+        width: 100%;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        border-radius: 12px;
+        background-color: #f5f5f5; /*Fondo neutro*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ubicacion-img-box img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+        transition: transform 0.4s ease;
+    }
+
+    .ubicacion-img-box:hover img {
+        transform: scale(1.05);
+    }
+
+</style>
+{% endblock %}
+
+
 {% block body %}
 
+
+<section class="container my-5">
+    <!-- Título-->
+     <div class="text-center mb-5">
+        <h1 class="fw-bold">Ubicación</h1>
+        <p class="lead">
+            Todas nuestras actividades se desarrollan en un espacio que fue
+            clave para el crecimiento de la escuelita.
+        </p>
+     </div>
+
+     <!-- Información del complejo-->
+      <div class="row align-items-center mb-5">
+        <!--Logo-->
+        <div class="col-md-4 text-center mb-3 mb-md-0">
+            <img src="/static/imagenes/logoFamily.jpg" 
+                 alt="Family Padel"
+                 class="img-fluid"
+                 style="max-height: 180px;">
+        </div>
+
+        <!--Texto-->
+        <div class="col-md-8">
+            <h3 class="fw-bold">Family Padel</h3>
+            <h6 class="text-muted">Berazategui</h6>
+
+            <p class="mt-3">
+                Todas las clases de la escuelita se realizan en el complejo
+                <strong>Family Padel</strong>, ubicado en Berazategui
+            </p>
+
+             <p>
+                Desde nuestros comienzos, Family Padel fue un pilar fundamental,
+                brindándonos un espacio cómodo, seguro y con excelentes
+                condiciones para que los chicos puedan aprender, entrenar y
+                disfrutar del pádel.
+            </p>
+
+        </div>
+      </div>
+
+      <!--Galería de imagenes-->
+      <div class="mb-5">
+        <h4 class="fw-bold mb-3">Nuestro espacio</h4>
+        <div class="row g-3">
+            <div class="col-md-4">
+                <div class="ubicacion-img-box">
+                    <img src="/static/imagenes/family1.jpg" alt="Family Padel">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="ubicacion-img-box">
+                    <img src="/static/imagenes/family2.jpg" alt="Family Padel">
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="ubicacion-img-box">
+                    <img src="/static/imagenes/family3.jpg" alt="Family Padel">
+                </div>
+            </div>
+        </div>
+      </div>
+
+      <!--Ubicacion y boton-->
+      <div class="text-center">
+        <h4 class="fw-bold mb-3">¿Cómo llegar?</h4>
+        <p>
+            El complejo se encuentra en Berazategui, con fácil acceso para
+            las familias.
+        </p>
+
+        <a href="https://www.google.com/maps/place/Family/@-34.7658792,-58.1946909,17z/data=!3m1!4b1!4m6!3m5!1s0x95a328aa32b15149:0xfd01245cdc3f9d47!8m2!3d-34.7658792!4d-58.192116!16s%2Fg%2F11fyzzsw0m?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+            target="_blank"
+            class="btn btn-success btn-lg mt-2">
+            Ver ubicacion en Google Maps
+        </a>
+      </div>
+
+
+</section>
 {% endblock %}

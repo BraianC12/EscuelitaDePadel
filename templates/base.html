@@ -6,63 +6,91 @@
     <title>{% block title %} {% endblock %}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
-        .img-box{
-            width: 120%;
-            height: 750px;
-            overflow: hidden;
-            border-radius: 15px;
+        /*MENU*/
+        .custom-navbar {
+            background: linear-gradient(90deg, #d97706, #f59e0b);
         }
 
-        .img-box img{
+        /*Links*/
+        .custom-navbar .nav-link{
+            color: #fff;
+            font-weight: 500;
+            position: relative;
+            transition: 0.3s;
+        }
+
+        .custom-navbar .nav-link:hover {
+            color: #111;
+        }
+
+        /*Subrayado animado*/
+        .custom-navbar .nav-link::after {
+            content: "";
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #111;
+            transition: 0.3s;
+        }
+
+        .custom-navbar .nav-link:hover::after{
             width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
-        .img-box{
-            transition: transform 0.3s ease;
+        /*Mobile*/
+        @media (max-width: 991px) {
+            .custom-navbar .btn {
+                width: 100%;
+            }
         }
-
-        .img-box:hover {
-            transform: scale(1.03);
-        }
+        
     </style>
+    
+    {% block styles %}{% endblock %}
 
     <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg shadow-sm" style="backdrop-filter: blur(8px); background: rgba(230, 143, 14, 0.637);">
-    <div class="container">
-        <a class="navbar-brand fw-bold fs-4" href="/" style="letter-spacing: 1px;">ESCUELITA DE PADEL BERAZATEGUI</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-        <ul class="navbar-nav gap-4">
-            <li class="nav-item">
-                <a class="nav-link fw-semibold" aria-current="page" href="/" style="transition: 0.2s;">Inicio</a>
-            </li>
+    <nav class="navbar navbar-expand-lg shadow-sm custom-navbar" style="backdrop-filter: blur(8px); background:orange;">
+        <div class="container">
 
-            <li class="nav-item">
-                <a class="nav-link fw-semibold" aria-current="page" href="{{ url_for('turnos') }}" style="transition: 0.2s;">Turnos</a>
-            </li>
+            <!--Logo/Nombre-->
+            <a class="navbar-brand d-flex align-items-center gap-2" href="/">
+                <img src="/static/imagenes/logo.jpg" alt="Logo" height="40">
+                <span class="fw-bold fs-5">Escuelita de Pádel</span>
+
+            </a>
+
+            <!--Boton Mobile-->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" 
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
             
-            <li class="nav-item">
-                <a class="nav-link fw-semibold" aria-current="page" href="{{ url_for('ubicacion') }}" style="transition: 0.2s;">Ubicacion</a>
-            </li>
+            <!--Links-->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mx-auto gap-lg-4 text-center mt-3 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Inicio</a>
+                    </li>
 
-            <li class="nav-item">
-                <a class="nav-link fw-semibold" aria-current="page" href="{{ url_for('registrar') }}" style="transition: 0.2s;">Registrar</a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link fw-semibold" aria-current="page" href="{{ url_for('login') }}" style="transition: 0.2s;">Login</a>
-            </li>
-
-
-  
-        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('turnos') }}">Turnos</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('ubicacion') }}">Ubicacion</a>
+                    </li>
+                </ul>
+            
+            <div class="d-flex flex-column flex-lg-row gap-2 text-center">
+                    <a href="{{ url_for('registrar') }}" class="btn btn-warning fw-semibold">Registrar</a>                
+                    <a href="{{ url_for('login') }}" class="btn btn-outline-light">Login</a>
+                    
+            </div>
         </div>
     </div>
     </nav>

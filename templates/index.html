@@ -1,6 +1,41 @@
 {% extends './base.html' %}
 
 {% block title %} Pagina Principal{% endblock %}
+{% block styles %}
+<style>
+ .home-img-box{
+            width: 100%;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .home-img-box img{
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        @media (max-width: 768px) {
+            .img-box{
+                height: 300px;
+            }
+
+            .img-box img {
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .home-img-box{
+            transition: transform 0.3s ease;
+        }
+
+        .home-img-box:hover {
+            transform: scale(1.03);
+        }
+
+</style>
+{% endblock %}
 
 {% block body %}
 <div class="row align-items-center mb-5">
@@ -71,22 +106,22 @@
 <div class="row mb-5">
     <h2 class="fw-bold text-center mb-4">Nuestra escuelita</h2>
 
-    <div class="img-box">
+    <div class="home-img-box">
         <img src="{{ url_for('static', filename='imagenes/escuelita1.jpeg') }}">
     </div>
 
     
-    <div class="img-box">
+    <div class="home-img-box">
         <img src="{{ url_for('static', filename='imagenes/escuelita2.jpeg') }}">
     </div>
 
     
-    <div class="img-box">
+    <div class="home-img-box">
         <img src="{{ url_for('static', filename='imagenes/escuelita3.jpeg') }}">
     </div>
 
     
-    <div class="img-box">
+    <div class="home-img-box">
         <img src="{{ url_for('static', filename='imagenes/escuelita4.jpeg') }}">
     </div>
 </div>
