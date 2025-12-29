@@ -1,7 +1,63 @@
 {% extends './base.html' %}
 
-{% block title %}Login{% endblock %}
+{% block title %}Login Administrador{% endblock %}
 
 {% block body %}
+<section class="container my-5" style="max-width: 400px;">
+    <h2 class="text-center fw-bold mb-4">Hola Profesores 👋</h2>
+
+    <form method="POST" class="card p-4 shadow-sm mb-5" style="max-width: 400px; margin: auto;">
+        <div class="mb-3">
+            <label class="form-label">DNI</label>
+            <input type="text" name="dni" class="form-control" required>
+        </div>
+
+        <div class="mb-4">
+            <label class="form-label">Clave</label>
+            <input type="password" name="clave" class="form-control" required>
+        </div>
+
+        <button class="btn btn-warning w-100 fw-bold">
+            Ingresar
+        </button>
+    </form>
+
+    <!--BLOQUE INFORMATIVO-->
+    <div class="text-center mt-5">
+        <h4 class="fw-bold mb-3">Acceso Exclusivo al equipo docente</h4>
+        <p class="text-muted">
+            Este panel está destinado únicamente a los profesores y responsables de la escuelita.
+            Desde aquí se podrá administrar la información de los alumnos, organizar los turnos
+            y mantener actualizados los datos de cada chico.
+        </p>
+    </div>
+
+    <!--FUNCIONALIDADES-->
+    <div class="row mt-4">
+        <div class="col-md-6 mb-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="fw-bold">Gestión de alumnos</h5>
+                    <p class="text-muted mb-0">
+                        Visualizar el listado completo de alumnos registrados en cada turno.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+         <div class="col-md-6 mb-3">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="fw-bold">Organización de turnos</h5>
+                    <p class="text-muted mb-0">
+                        Modificar turnos, edades y reorganizar los grupos de entrenamiento.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
 
 {% endblock %}

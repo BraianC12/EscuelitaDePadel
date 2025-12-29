@@ -12,5 +12,8 @@ class Alumno(db.Model):
     edad = db.Column(db.Integer, nullable=False)
     turno = db.Column(db.String(20), nullable=False)
 
-    def __repr__(self):
-        return f"<Alumno {self.nombre} {self.apellido}>"
+class Admin(db.Model):
+    __tablename__ = "admins"
+
+    id = db.Column(db.Integer, primary_key=True)
+    dni = db.Column(db.String(20), unique=True, nullable=False)

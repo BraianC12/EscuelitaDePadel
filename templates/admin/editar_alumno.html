@@ -1,0 +1,56 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Editar Alumno{% endblock %}
+
+{% block body %}
+<h2 class="fw-bold mb-4 text-center">Editar Alumno</h2>
+
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+                
+        <form method="POST" class="card p-4 shadow-sm">
+            <div class="mb-3">
+                <label class="form-label">Nombre</label>
+                <input type="text" name="nombre" class="form-control"
+                    value="{{alumno.nombre }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Apellido</label>
+                <input type="text" name="apellido" class="form-control"
+                    value="{{alumno.apellido }}" required>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Edad</label>
+                <input type="number" name="edad" class="form-control"
+                    value="{{alumno.edad }}" required>
+            </div>
+
+            <div class="mb-4">
+                <label class="form-label">Turno</label>
+
+                <select name="turno" class="form-select" required>
+                    <option value="10:30" {% if alumno.turno == "10:30" %}selected{% endif %}>10:30</option>
+                    <option value="12:00" {% if alumno.turno == "12:00" %}selected{% endif %}>12:00</option>
+                    <option value="13:30" {% if alumno.turno == "13:30" %}selected{% endif %}>13:30</option>
+                </select>
+            </div>
+
+            <div class="d-flex justify-content-between mt-4">
+                <button class="btn btn-success fw-bold px-4">
+                    Guardar cambios
+                </button>
+            
+
+                <a href="{{ url_for('admin_alumnos') }}"
+                    class="btn btn-outline-secondary px-4">
+                    Cancelar
+                </a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+{% endblock %}

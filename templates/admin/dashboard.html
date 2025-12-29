@@ -1,0 +1,81 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Panel de Administracion{% endblock %}
+
+{% block body %}
+<h1 class="fw-bold mb-2">👋 Hola Profesores</h1>
+
+<div class="mb-4">
+    <h2 class="fw-bold">Panel de Administración</h2>
+    <p class="text-muted">
+        Gestioná alumnos, pagos y turnos de la escuelita.
+    </p>
+</div>
+
+<div class="row g-4">
+    <!--ALUMNOS-->
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="fw-bold mb-2">👥 Alumnos</h5>
+                <p class="text-muted">
+                    Alta, edición y seguimiento de los alumnos.
+                </p>
+
+                <div class="d-grip gap-2">
+                    <a href="{{ url_for('admin_alumnos') }}" class="btn btn-primary">
+                        Ver alumnos
+                    </a>
+                    <a href="#" class="btn btn-outline-primary">
+                        Agregar alumno
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--PAGOS-->
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="fw-bold mb-2">💳 Pagos</h5>
+                <p class="text-muted">
+                    Registro y control de pagos mensuales.
+                </p>
+
+                <div class="d-grip gap-2">
+                    <a href="#" class="btn btn-success">
+                        Registrar pago
+                    </a>
+                    <a href="#" class="btn btn-outline-success">
+                        Ver pagos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--TURNOS-->
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="fw-bold mb-2">⏰ Turnos</h5>
+                <p class="text-muted">
+                  Organización de alumnos por turnos.
+                </p>
+
+                <div class="d-grip gap-2">
+                    <a href="{{ url_for('turnos') }}" class="btn btn-warning">
+                        Ver alumnos
+                    </a>
+                    <a href="#" class="btn btn-outline-warning">
+                        Reorganizar turnos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
