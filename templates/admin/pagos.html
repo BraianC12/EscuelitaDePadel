@@ -5,14 +5,15 @@
     <i class="bi bi-cash"></i> Pagos recibidos
 </h3>
 
-<table class="table table-striped shadow-sm">
+<div class="table-reponsive">
+    <table class="table table-striped shadow-sm align-middle text-nowrap">
     <thead>
         <tr>
             <th>Alumno</th>
-            <th>DNI</th>
-            <th>Año</th>
+            <th class="d-none d-md-table-cell">DNI</th>
+            <th class="d-none d-md-table-cell">Año</th>
             <th>Mes</th>
-            <th>Monto</th>
+            <th class="d-none d-md-table-cell">Monto</th>
             <th>Estado</th>
             <th>Comprobante</th>
             <th>Acción</th>
@@ -23,10 +24,10 @@
         {% for pago in pagos %}
         <tr>
             <td>{{ pago.alumno.apellido }} {{ pago.alumno.nombre }}</td>
-            <td>{{ pago.alumno.dni }}</td>
-            <td>{{ pago.anio }}</td>
+            <td class="d-none d-md-table-cell">{{ pago.alumno.dni }}</td>
+            <td class="d-none d-md-table-cell">{{ pago.anio }}</td>
             <td>{{ pago.mes_nombre }}</td>
-            <td>{{ pago.monto }}</td>
+            <td class="d-none d-md-table-cell">{{ pago.monto }}</td>
             <td>
                 {% if pago.estado == "enviado" %}
                     🟡 En revisión
@@ -57,6 +58,7 @@
         {% endfor %}
     </tbody>
 </table>
+</div>
 
 
 {% endblock %}

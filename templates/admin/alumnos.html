@@ -3,49 +3,64 @@
 {% block title %}Alumnos{% endblock %}
 
 {% block body %}
-<h2 class="table table-hover shadow-sm">📋 Alumnos</h2>
+<h3 class="fw-bold mb-4">
+    <i class="bi bi-people"></i> Alumnos
+</h3>
 
-<table class="table table-hover shadow-sm">
-    <thead class="table-dark">
-        <tr>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>DNI</th>
-            <th>Edad</th>
-            <th>Turno</th>
-            <th>Cuota mes Actual</th>
-            <th>Acciones</th>
-        </tr>
-    </thead>
+<div class="table-reponsive">
+    <table class="table table-hover shadow-sm align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
 
-    <tbody>
-        {% for item in alumnos_estado %}
-        {% set alumno = item.alumno %}
-        <tr>
-            <td>{{ alumno.nombre }}</td>
-            <td>{{ alumno.apellido }}</td>
-            <td>{{ alumno.dni }}</td>
-            <td>{{ alumno.edad }}</td>
-            <td>{{ alumno.turno }}</td>
-            <td>
-                {% if item.estado == "pendiente" %}
-                    <span class="badge bg-danger">❌ Pendiente</span>
-                {% elif item.estado == "enviado" %}
-                    <span class="badge bg-warning text-dark">🟡 En revisión</span>
-                {% elif item.estado == "aprobado" %}
-                    <span class="badge bg-success">🟢 Pagado</span>
-                {% endif %}
-            </td>
-            <td>
-                <a href="{{ url_for('editar_alumno', id=alumno.id) }}"
-                    class="btn btn-sm btn-warning">
-                    ✏️ Editar
-                </a>
-                
-            </td>
-        </tr>
-        {% endfor %}
+                <!--OCULTOS EN MOBILE-->
+                <th class="d-none d-md-table-cell">DNI</th>
+                <th class="d-none d-md-table-cell">Edad</th>
 
-    </tbody>
-</table>
+                <th>Turno</th>
+                <th>Cuota del mes actual</th>
+                <th class="text-center">Editar</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in alumnos_estado %}
+            {% set alumno = item.alumno %}
+            <tr>
+                <td>{{ alumno.nombre }}</td>
+                <td>{{ alumno.apellido }}</td>
+
+                <!--OCULTOS EN MOBILE-->
+                <td class="d-none d-md-table-cell">{{ alumno.dni }}</td>
+                <td class="d-none d-md-table-cell">{{ alumno.edad }}</td>
+
+                <td>
+                    <span class="badge bg-secondary">
+                        {{ alumno.turno }}
+                    </span>
+                </td>
+
+                <td>
+                    {% if item.estado == "pendiente" %}
+                        <span class="badge bg-danger">❌ Pendiente</span>
+                    {% elif item.estado == "enviado" %}
+                        <span class="badge bg-warning text-dark">🟡 En revisión</span>
+                    {% elif item.estado == "aprobado" %}
+                        <span class="badge bg-success">🟢 Pagado</span>
+                    {% endif %}
+                </td>
+
+                <td class="text-center">
+                    <a href="{{ url_for('editar_alumno', id=alumno.id) }}"
+                       class="btn btn-sm btn-warning">
+                        <i class="bi bi-pencil"></i>
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
 {% endblock %}
