@@ -1,0 +1,57 @@
+{% extends "padre/base_padre.html" %}
+
+{% block title %}Historial de Pagos{% endblock %}
+
+{% block body %}
+<h3 class="fw-bold mb-4">
+    📜 Historial de Pagos
+</h3>
+
+{% if pagos %}
+<table class="table table-bordered text-center">
+    <thead class="table-dark">
+        <tr>
+            <th>Mes</th>
+            <th>Monto</th>
+            <th>Estado</th>
+            <th>Comprobante</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for pago in pagos %}
+        <tr>
+            <td>{{ pago.mes }}</td>
+            <td>{{ pago.monto }}</td>
+            <td>
+                {% if pago.estado == "aprobado" %}
+                    <span class="badge bg-success">Aprobado</span>
+                {% elif pago.estado == "enviado" %}
+                    <span class="badge bg-warning text-dark">En revisión</span>
+                {% else %}
+                    <span class="badge bg-danger">Pendiente</span>
+                {% endif %}
+            </td>
+            <td>
+                {% if pago.comprobante %}
+
+                <a href="{{ url_for('static', filename='comprobantes/' ~ pago.comprobante) }}"
+                   target="_blank"
+                   class="btn btn-sm btn-primary">
+                    Ver
+                </a>
+                {% else %}
+                
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<div class="alert alert-info text-center">
+    Áun no hay pagos registrados.
+</div>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "admin/base_admin.html" %}
+
+{% block title %}Organización de Turnos{% endblock %}
+
+{% block body %}
+
+<h2 class="fw-bold mb-3">Organización de turnos</h2>
+<p class="text-muted mb-4">
+    Visualizá y reorganizá los alumnos por horario.
+</p>
+
+<div class="row g-4">
+{% for horario, alumnos in turnos.items() %}
+
+    <div class="col-md-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="fw-bold text-center mb-3">⏰ {{ horario }}</h5>
+
+                {% if alumnos %}
+                    {% for alumno in alumnos %}
+                    <div class="border rounded p-2 mb-2">
+                        <strong>{{ alumno.nombre }} {{ alumno.apellido }}</strong>
+
+                        <form
+                            action="{{ url_for('cambiar_turno', id=alumno.id) }}"
+                            method="POST"
+                            class="mt-2 d-flex gap-2">
+                        
+                            <select name="turno" class="form-select form-select-sm">
+                                <option value="10:30" {% if alumno.turno == "10:30" %}selected{% endif %}>10:30</option>
+                                <option value="12:00" {% if alumno.turno == "12:00" %}selected{% endif %}>12:00</option>
+                                <option value="13:30" {% if alumno.turno == "13:30" %}selected{% endif %}>13:30</option>
+                            </select>
+
+                            <button class="btn btn-sm btn-outline-primary">
+                                Cambiar
+                            </button>
+                        </form>
+                    </div>
+
+                    {% endfor %}
+                {% else %}
+                    <p class="text-muted text-center">
+                        No hay alumnos en este turno
+                    </p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endfor %}
+</div>
+
+
+{% endblock %}

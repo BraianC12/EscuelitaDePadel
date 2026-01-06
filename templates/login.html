@@ -4,16 +4,24 @@
 
 {% block body %}
 <section class="container my-5" style="max-width: 400px;">
-    <h2 class="text-center fw-bold mb-4">Hola Profesores 👋</h2>
+    <h2 class="text-center fw-bold mb-4">Acceso al sistema 🔐</h2>
+
+    <p class="text-center text-muted mb-4">
+        Ingreso para profesores y familias de la escuelita
+    </p>
+
 
     <form method="POST" class="card p-4 shadow-sm mb-5" style="max-width: 400px; margin: auto;">
         <div class="mb-3">
             <label class="form-label">DNI</label>
             <input type="text" name="dni" class="form-control" required>
+            <small class="text-muted">
+                DNI del profesor o del alumno
+            </small>
         </div>
 
         <div class="mb-4">
-            <label class="form-label">Clave</label>
+            <label class="form-label">Clave de acceso</label>
             <input type="password" name="clave" class="form-control" required>
         </div>
 
@@ -24,11 +32,10 @@
 
     <!--BLOQUE INFORMATIVO-->
     <div class="text-center mt-5">
-        <h4 class="fw-bold mb-3">Acceso Exclusivo al equipo docente</h4>
+        <h4 class="fw-bold mb-3">¿Quiéne puede ingresar?</h4>
         <p class="text-muted">
-            Este panel está destinado únicamente a los profesores y responsables de la escuelita.
-            Desde aquí se podrá administrar la información de los alumnos, organizar los turnos
-            y mantener actualizados los datos de cada chico.
+            Este accesso está destinado a profesore y familias de alumnos registrados
+            en la escuelita
         </p>
     </div>
 
@@ -36,10 +43,10 @@
     <div class="row mt-4">
         <div class="col-md-6 mb-3">
             <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="fw-bold">Gestión de alumnos</h5>
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">👨‍🏫 Profesores</h5>
                     <p class="text-muted mb-0">
-                        Visualizar el listado completo de alumnos registrados en cada turno.
+                        Gestión de alumnos, organización de turnos y control de pagos.
                     </p>
                 </div>
             </div>
@@ -47,10 +54,10 @@
         
          <div class="col-md-6 mb-3">
             <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="fw-bold">Organización de turnos</h5>
+                <div class="card-body text-center">
+                    <h5 class="fw-bold">👨‍👩‍👧 Familias</h5>
                     <p class="text-muted mb-0">
-                        Modificar turnos, edades y reorganizar los grupos de entrenamiento.
+                        Consulta de información del alumno y estado de pagos.
                     </p>
                 </div>
             </div>

@@ -1,0 +1,87 @@
+{% extends "padre/base_padre.html" %}
+
+{% block title %}Panel del Padre{% endblock %}
+
+{% block body %}
+<h3 class="fw-bold mb-4">
+    👋 Bienvenido/a, familia <span class="text-warning">{{ alumno.nombre }}</span>
+<h3>
+
+<div class="row">
+    <!--INFO DEL ALUMNO-->
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm h-100">
+            <div class="card-body">
+                <h5 class="fw-bold mb-3">
+                    <i class="bi bi-person-circle"></i> Datos del Alumno
+                </h5>
+
+                <p class="mb-2">
+                    <i class="bi bi-person"></i>
+                    <strong>Nombre:</strong> {{ alumno.nombre }} {{ alumno.apellido }}
+                </p>
+
+                <p class="mb-2">
+                    <i class="bi bi-card-text"></i>
+                    <strong>DNI:</strong> {{ alumno.dni }}
+                </p>
+
+                <p class="mb-0">
+                    <i class="bi bi-clock"></i>
+                    <strong>Turno:</strong> {{ alumno.turno }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!--PAGOS-->
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="fw-bold mb-3">
+                    <i class="bi bi-cash-coin"></i>Estado de Pagos
+                </h5>
+
+                {% if not pago %}
+                    <div class="alert alert-danger text-center fw-bold">
+                        🔴 Cuota del mes pendiente
+                    </div>
+
+                {% elif pago.estado == "enviado" %}
+                    <div class="alert alert-warning text-center fw-bold">
+                        🟡 Pago enviado – en revisión
+                    </div>
+                
+                {% elif pago.estado == "aprobado" %}
+                    <div class="alert alert-success text-center fw-bold">
+                        🟢 Cuota del mes al día
+                    </div>
+
+                    {% endif %}
+
+                <div class="d-grid">
+                    <a href="{{ url_for('pagos_padre') }}" class="btn btn-success fw-bold">
+                        <i class="bi bi-credit-card"></i> Ver / pagar cuota
+                    </a>
+
+                    <a href="{{ url_for('historial_pagos_padre') }}"
+                       class="btn btn-outline-primary fw-bold mt-2">
+                       📜 Ver historial de pagos
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--INFO GENERAL-->
+<div class="card shadow-sm">
+    <div class="card-body text-center">
+        <i class="bi bi-info-circle fs-4 text-primary"></i>
+        <p class="mt-2 mb-0 text-muted">
+            Ante cualquier duda o inconveniente con los pagos,
+            comunicarse directamente con el profesor.
+        </p>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "padre/base_padre.html" %}
+
+{% block title %}Mis pagos{% endblock %}
+
+{% block body %}
+<h3 class="fw-bold mb-4">
+    <i class="bi bi-cash-coin"></i> Mis pagos
+</h3>
+
+<div class="card shadow-sm mb-4">
+    <div class="card-body">
+
+        <p><strong>Periodo:</strong>{{ mes_nombre }} {{ anio }}</p>
+        <p><strong>Monto:</strong> ${{ monto }}</p>
+
+        <hr>
+        
+        <p class="fw-bold">Alias para pagar: </p>
+        <div class="alert alert-secondary fw-bold text-center">
+            ESCUELITA.PADEL.2026
+        </div>
+
+        {% if not pago %}
+            <div class="alert alert-danger">
+                🔴 Pago no realizado
+            </div>
+
+            <form method="POST" enctype="multipart/form-data">
+                <label class="form-label fw-bold">
+                    Subir comprobante de pago
+                </label>
+
+                <input type="file" name="comprobante" class="form-control mb-3" required>
+
+                <button class="btn btn-success fw-bold">
+                    <i class="bi bi-upload"></i> Enviar comprobante
+                </button>
+            </form>
+
+        {% elif pago.estado == "enviado" %}
+            <div class="alert alert-warning fw-bold">
+                🟡 Comprobante enviado – en revisión
+            </div>
+        
+        {% elif pago.estado == "aprobado" %}
+            <div class="alert alert-success fw-bold">
+                🟢 Pago aprobado
+            </div>
+        
+            {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}

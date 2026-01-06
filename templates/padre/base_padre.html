@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Panel Familia{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        body{
+            background: #f4f6f9;
+        }
+
+        .navbar-padre {
+            background: linear-gradient(90deg, #ffb703, #fb8500);
+        }
+
+        .navbar-padre .nav-link,
+        .navbar-padre .navbar-brand {
+            color: #000;
+            font-weight: bold;
+        }
+
+        .navbar-padre .nav-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-padre shadow-sm">
+        <div class="container">
+
+            <a class="navbar-brand d-flex align-items-center gap-2" href="{{ url_for('panel_padre') }}">
+                <img src="/static/imagenes/logo.jpg" alt="Logo" height="40">
+                <span class="fw-bold fs-5">Escuelita de Pádel</span>
+            </a>
+
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#menuPadre">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menuPadre">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('panel_padre') }}">
+                            <i class="bi bi-house"></i> Principal
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('pagos_padre') }}">
+                            <i class="bi bi-cash"></i> Pagos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('info_padre') }}">
+                            <i class="bi bi-circle"></i> Informacion
+                        </a>
+                    </li>
+
+                </ul>
+
+                <a href="{{ url_for('principal') }}" class="btn btn-sm btn-outline-danger fw-bold">
+                    <i class="bi bi-box-arrow-right"></i> Cerrar sesion
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </nav>
+
+
+    <div class="container my-4">
+        {% block body %}{% endblock %}
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

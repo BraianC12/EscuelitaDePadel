@@ -1,0 +1,62 @@
+{% extends "admin/base_admin.html" %}
+
+{% block body %}
+<h3 class="fw-bold mb-4">
+    <i class="bi bi-cash"></i> Pagos recibidos
+</h3>
+
+<table class="table table-striped shadow-sm">
+    <thead>
+        <tr>
+            <th>Alumno</th>
+            <th>DNI</th>
+            <th>Año</th>
+            <th>Mes</th>
+            <th>Monto</th>
+            <th>Estado</th>
+            <th>Comprobante</th>
+            <th>Acción</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for pago in pagos %}
+        <tr>
+            <td>{{ pago.alumno.apellido }} {{ pago.alumno.nombre }}</td>
+            <td>{{ pago.alumno.dni }}</td>
+            <td>{{ pago.anio }}</td>
+            <td>{{ pago.mes_nombre }}</td>
+            <td>{{ pago.monto }}</td>
+            <td>
+                {% if pago.estado == "enviado" %}
+                    🟡 En revisión
+                {% elif pago.estado == "aprobado" %}
+                    🟢 Aprobado
+                {% endif %}
+            </td>
+
+            <td>
+                {% if pago.comprobante %}
+                <a href="{{ url_for('static', filename='comprobantes/' + pago.comprobante) }}"
+                   target="_blank"
+                   class="btn btb-sm btn-outline-primary">
+                    Ver
+                </a>
+                {% endif %}
+            </td>
+
+            <td>
+                {% if pago.estado != "aprobado" %}
+                <a href="{{ url_for('aprobar_pago', id=pago.id) }}"
+                   class="btn btn-sm btn-success">
+                    Aprobar
+                </a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+{% endblock %}
