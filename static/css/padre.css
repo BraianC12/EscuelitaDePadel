@@ -1,0 +1,57 @@
+body {
+    background: #f4f6f9;
+}
+
+/*NAVBAR*/
+.navbar-padre {
+    background: linear-gradient(90deg, #ffb703, #fb8500);
+}
+
+.navbar-padre .nav-link,
+.navbar-padre .navbar-brand {
+    color: #1a1a1a;
+    font-weight: 600;
+}
+
+.navbar-padre .nav-link:hover {
+    text-decoration: underline;
+}
+
+/*CARDS*/
+.card {
+    border: none;
+    border-radius: 14px;
+}
+
+.card h5 {
+    color: #023047;
+}
+
+/*BOTONES*/
+.btn {
+    border-radius: 10px;
+}
+
+.btn-success {
+    background-color: #2a9d8f;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #21867a;
+}
+
+/*ALERTAS*/
+.alert {
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}

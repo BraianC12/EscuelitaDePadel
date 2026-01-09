@@ -8,8 +8,8 @@
 </h3>
 
 {% if pagos %}
-<table class="table table-bordered text-center">
-    <thead class="table-dark">
+<table class="table table-hover align-middle text-center shadow-sm">
+    <thead class="table-light">
         <tr>
             <th>Mes</th>
             <th>Monto</th>
@@ -36,9 +36,8 @@
                 {% if pago.comprobante %}
 
                 <a href="{{ url_for('static', filename='comprobantes/' ~ pago.comprobante) }}"
-                   target="_blank"
-                   class="btn btn-sm btn-primary">
-                    Ver
+                   class="btn btn-sm btn-outline-primary">
+                    <i class="bi bi-receipt"></i>Ver
                 </a>
                 {% else %}
                 

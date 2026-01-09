@@ -315,15 +315,27 @@ def admin_pagos():
     
     pagos = Pago.query.all()
 
+    total_aprobados = 0
+    total_pendientes = 0
+
     for pago in pagos:
         try:
             pago.mes_nombre = MESES_ES_NUM.get(int(pago.mes), "Mes invalido")
-        
         except ValueError:
             pago.mes_nombre = pago.mes
+
+        if pago.estado == "aprobado":
+            total_aprobados += 1
+        else:
+            total_pendientes += 1
         
 
-    return render_template("admin/pagos.html", pagos=pagos)
+    return render_template(
+        "admin/pagos.html", 
+        pagos=pagos,
+        total_aprobados=total_aprobados,
+        total_pendientes=total_pendientes
+        )
 
 @app.route("/admin/pagos/aprobar/<int:id>")
 def aprobar_pago(id):
@@ -387,5 +399,5 @@ def generar_cuotas_mes_actual(alumno_id):
 
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT", 5000))
-    app.run(host="0.0.0.0", port=port)
+    #port = int(os.environ.get("PORT", 5000))
+    app.run(debug=True)

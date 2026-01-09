@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Panel Familia{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/padre.css') }}">
+
+
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,25 +15,7 @@
     <!-- Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
-    <style>
-        body{
-            background: #f4f6f9;
-        }
 
-        .navbar-padre {
-            background: linear-gradient(90deg, #ffb703, #fb8500);
-        }
-
-        .navbar-padre .nav-link,
-        .navbar-padre .navbar-brand {
-            color: #000;
-            font-weight: bold;
-        }
-
-        .navbar-padre .nav-link:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 <body>
 
